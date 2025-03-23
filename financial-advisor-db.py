@@ -1,4 +1,6 @@
 import sqlite3
+import os
+
 
 
 # Use the current working directory to store the database
