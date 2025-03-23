@@ -11,10 +11,7 @@ def fintechbot(question:str):
     db_path = os.path.join(os.getcwd(), "ai-financial-advisor.db")
     db = SQLDatabase.from_uri(f'sqlite:///{db_path}')
 
-   bedrock_config = botocore.config.Config(
-                    read_timeout=900, 
-                    connect_timeout=900, 
-                    region_name="us-east-1")
+   bedrock_config = botocore.config.Config(read_timeout=900,connect_timeout=900,region_name="us-east-1")
    bedrock_client = boto3.client("bedrock-runtime", config=bedrock_config)
 
    llm = ChatBedrock(
