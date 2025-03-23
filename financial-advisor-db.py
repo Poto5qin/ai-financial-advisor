@@ -1,7 +1,11 @@
 import sqlite3
 
+
+# Use the current working directory to store the database
+db_path = os.path.join(os.getcwd(), "ai-financial-advisor.db")
+
 # Create a new SQLite3 database and establish a connection
-conn = sqlite3.connect('/Volumes/QDrive/Workspace/portfolio-projects/ai-financial-advisor/ai-financial-advisor.db')
+conn = sqlite3.connect(db_path)
 cursor = conn.cursor()
 
 # Create a table for clients
@@ -74,4 +78,4 @@ VALUES (?, ?, ?, ?, ?);
 conn.commit()
 conn.close()
 
-"/Volumes/QDrive/Workspace/portfolio-projects/ai-financial-advisor/ai-financial-advisor.db"
+print(f"Database created successfully at {db_path}")
