@@ -7,9 +7,9 @@ from langchain_community.utilities import SQLDatabase
 
 def fintechbot(question:str):
     
-
-   database_file_path = r"/Volumes/QDrive/Workspace/portfolio-projects/ai-financial-advisor/ai-financial-advisor.db"
-   db = SQLDatabase.from_uri(f'sqlite:///{database_file_path}')
+    # Use the current working directory to reference the database
+    db_path = os.path.join(os.getcwd(), "ai-financial-advisor.db")
+    db = SQLDatabase.from_uri(f'sqlite:///{db_path}')
 
    bedrock_config = botocore.config.Config(read_timeout=900, connect_timeout=900, region_name="us-east-1")
    bedrock_client = boto3.client("bedrock-runtime", config=bedrock_config)
